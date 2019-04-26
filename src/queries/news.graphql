@@ -1,0 +1,12 @@
+query Items($page: String!, $topic: String!) {
+  Items(page: $page, topic: $topic) {
+    comments_count,
+    domain
+    id,
+    points,
+    time_ago,
+    title,
+    url,
+    user,
+  }
+}
