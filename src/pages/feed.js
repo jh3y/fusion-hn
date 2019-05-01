@@ -42,7 +42,7 @@ const Feed = ({ match }) => {
               <Link
                 to={`/${topic}/${parseInt(page, 10) + 1}`}
                 style={{ textDecoration: 'none' }}>
-                <More>More</More>
+                <More>See more</More>
               </Link>
             )}
           </Container>
