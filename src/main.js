@@ -21,6 +21,17 @@ import {
   ApolloRenderEnhancer,
 } from 'fusion-plugin-apollo'
 
+// const langPlugin = createPlugin({
+//   middleware: () => {
+//     return (ctx, next) => {
+//       if (__NODE__) {
+//         ctx.template.htmlAttrs.lang = 'en-us';
+//       }
+//       return next();
+//     };
+//   },
+// });
+
 export default () => {
   const app = new App(root)
   app.register(Styletron)
@@ -30,9 +41,10 @@ export default () => {
   app.register(ApolloClientToken, ApolloClientPlugin)
   app.register(SwPlugin)
   app.enhance(RenderToken, ApolloRenderEnhancer)
+  // app.register(langPlugin)
   if (__BROWSER__) {
     app.register(FetchToken, window.fetch)
-    app.register(SWRegisterToken, true)
+    app.register(SWRegisterToken, false)
   }
   if (__NODE__) {
     app.register(FetchToken, fetch)

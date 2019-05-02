@@ -8,10 +8,13 @@ import {
 } from 'baseui/header-navigation'
 import { Helmet } from 'fusion-plugin-react-helmet-async'
 import Feed from './pages/feed'
+import Item from './pages/item'
 import PageNotFound from './pages/pageNotFound'
 import API_CONFIG from './config/api'
-import { assetUrl } from 'fusion-core'
+// import { assetUrl } from 'fusion-core'
 import { Header, NavHeader, NavItem, NavOption } from './components/nav'
+import CONFIG from './config/style'
+import { LightTheme } from 'baseui'
 
 const root = (
   <Fragment>
@@ -21,9 +24,8 @@ const root = (
         name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=5"
       />
-      <meta name="theme-color" content="#041725" />
-      <link rel="manifest" href={assetUrl('./manifest.json')} />
-      <link rel="stylesheet" href={assetUrl('./styles/base.css')} />
+      <meta name="theme-color" content={CONFIG.COLORS.DARK} />
+      {/* <link rel="manifest" href={assetUrl('./manifest.json')} /> */}
       <style>
         {`
           // NOT IDEAL BUT YOU CAN INLINE STYLES LIKE THIS FOR BETTER PERF
@@ -37,7 +39,25 @@ const root = (
           }
           /** Override for active route styling on Link */
           a.active > span {
-            color: #FFFFFF;
+            color: ${LightTheme.colors.mono100};
+          }
+          pre {
+            max-width: 100%;
+            white-space: pre-wrap;
+          }
+          .comment p {
+            margin: 0;
+            padding: 0 0 ${LightTheme.sizing.scale600};
+          }
+          .comment a,
+          .blurb a {
+            color: ${CONFIG.COLORS.LIGHTBLUE};
+            text-decoration: none;
+            word-break: break-all;
+          }
+          .comment a:hover,
+          .blurb a:hover {
+            text-decoration: underline;
           }
         `}
       </style>
@@ -61,7 +81,10 @@ const root = (
           </Link>
           {Object.keys(API_CONFIG.routes).map(route => (
             <NavItem key={`nav-item--${route}`}>
-              <Link style={{ textDecoration: 'none' }} to={`/${route}`}>
+              <Link
+                rel="prefetch"
+                style={{ textDecoration: 'none' }}
+                to={`/${route}`}>
                 <NavOption>{API_CONFIG.routes[route].toUpperCase()}</NavOption>
               </Link>
             </NavItem>
@@ -70,6 +93,7 @@ const root = (
       </HeaderNavigation>
     </Header>
     <Switch>
+      <Route path="/item/:id" component={Item} />
       <Route path="/:topic/:page" component={Feed} />
       <Route path="/:topic" component={Feed} />
       <Route exact path="/" component={Feed} />

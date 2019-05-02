@@ -1,0 +1,63 @@
+query Item($id: String!) {
+  Item(id: $id) {
+    ...ItemDetails
+    comments {
+      ...ItemDetails
+      comments {
+        ...ItemDetails
+        comments {
+          ...ItemDetails
+          comments {
+            ...ItemDetails
+            comments {
+              ...ItemDetails
+              comments {
+                ...ItemDetails
+                comments {
+                  ...ItemDetails
+                  comments {
+                    ...ItemDetails
+                    comments {
+                      ...ItemDetails
+                      comments {
+                        ...ItemDetails
+                        comments {
+                          ...ItemDetails
+                          comments {
+                            ...ItemDetails
+                            comments {
+                              ...ItemDetails
+                              comments {
+                                ...ItemDetails
+                                comments {
+                                  ...ItemDetails
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+fragment ItemDetails on Item {
+  content
+  type
+  comments_count
+  domain
+  id
+  level
+  points
+  time_ago
+  title
+  url
+  user
+}

@@ -56,9 +56,14 @@ const FeedItem = ({
   <Item>
     <ItemIndex>{index}</ItemIndex>
     <ItemHeader>
-      <MetaLink href={url} target="_blank" rel="noreferrer noopener">
-        {title}
-      </MetaLink>
+      {url.charAt(0) === 'i' && (
+        <MetaLink href={`/item/${id}`}>{title}</MetaLink>
+      )}
+      {url.charAt(0) !== 'i' && (
+        <MetaLink href={url} target="_blank" rel="noreferrer noopener">
+          {title}
+        </MetaLink>
+      )}
       {domain && (
         <Domain
           href={`https://news.ycombinator.com/from?site=${domain}`}
@@ -75,7 +80,7 @@ const FeedItem = ({
       )}
       {!user && 'Anonymous'}
       {` ${time_ago} | `}
-      <MetaLink href={`https://news.ycombinator.com/item?id=${id}`}>
+      <MetaLink href={`/item/${id}`}>
         {comments_count
           ? `${comments_count} comment${comments_count > 1 ? 's' : ''}`
           : 'discuss'}
