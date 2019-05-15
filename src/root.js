@@ -25,7 +25,6 @@ const root = (
         content="width=device-width,initial-scale=1,maximum-scale=5"
       />
       <meta name="theme-color" content={CONFIG.COLORS.DARK} />
-      {/* <link rel="manifest" href={assetUrl('./manifest.json')} /> */}
       <style>
         {`
           // NOT IDEAL BUT YOU CAN INLINE STYLES LIKE THIS FOR BETTER PERF
