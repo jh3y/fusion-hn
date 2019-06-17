@@ -35,9 +35,10 @@ const MetaLink = styled('a', {
   ...linkStyle,
 })
 const Domain = styled('a', ({ $theme }) => ({
-  ...linkStyle,
+  // ...linkStyle,
   color: CONFIG.COLORS.GREY,
   fontSize: $theme.typography.font250.fontSize,
+  textDecoration: 'none',
 }))
 
 const FeedItem = ({
@@ -66,6 +67,7 @@ const FeedItem = ({
       )}
       {domain && (
         <Domain
+          $as="span"
           href={`https://news.ycombinator.com/from?site=${domain}`}
           target="_blank"
           rel="noreferrer noopener">{` (${domain})`}</Domain>
