@@ -25,6 +25,10 @@ const root = (
         name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=5"
       />
+      <meta
+        name="description"
+        content="Hacker News client built with Fusion JS"
+      />
       <meta name="theme-color" content={CONFIG.COLORS.DARK} />
       <link
         rel="icon"
