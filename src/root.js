@@ -32,8 +32,17 @@ const root = (
       <meta name="theme-color" content={CONFIG.COLORS.DARK} />
       <link
         rel="icon"
-        href={assetUrl('./icons/fusion-hn-192.png')}
+        href={assetUrl('./icons/fusion-hn-16.png')}
         type="image/x-icon"
+      />
+      <link
+        rel="icon"
+        sizes="192x192"
+        href={assetUrl('./icons/fusion-hn-192.png')}
+      />
+      <link
+        rel="apple-touch-icon"
+        href={assetUrl('./icons/fusion-hn-192.png')}
       />
       <style>
         {`
