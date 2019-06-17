@@ -12,12 +12,12 @@ export default {
     {
       src: assetUrl('./icons/fusion-hn-192.png'),
       type: 'image/png',
-      size: '192x192',
+      sizes: '192x192',
     },
     {
       src: assetUrl('./icons/fusion-hn-512.png'),
       type: 'image/png',
-      size: '512x512',
+      sizes: '512x512',
     },
   ],
 }
