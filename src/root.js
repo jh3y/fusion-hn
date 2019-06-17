@@ -15,6 +15,7 @@ import API_CONFIG from './config/api'
 import { Header, NavHeader, NavItem, NavOption } from './components/nav'
 import CONFIG from './config/style'
 import { LightTheme } from 'baseui'
+import { assetUrl } from 'fusion-core'
 
 const root = (
   <Fragment>
@@ -25,6 +26,11 @@ const root = (
         content="width=device-width,initial-scale=1,maximum-scale=5"
       />
       <meta name="theme-color" content={CONFIG.COLORS.DARK} />
+      <link
+        rel="icon"
+        href={assetUrl('./icons/fusion-hn-192.png')}
+        type="image/x-icon"
+      />
       <style>
         {`
           // NOT IDEAL BUT YOU CAN INLINE STYLES LIKE THIS FOR BETTER PERF

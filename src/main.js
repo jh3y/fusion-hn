@@ -24,6 +24,23 @@ import {
   ApolloRenderEnhancer,
 } from 'fusion-plugin-apollo'
 
+// const FaviconToken = createToken('FaviconToken')
+// const FaviconPlugin =
+//   __NODE__ &&
+//   createPlugin({
+//     deps: {
+//       asset: FaviconToken,
+//     },
+//     middleware({ asset }) {
+//       return (ctx, next) => {
+//         if (ctx.method === 'GET' && ctx.path === '/favicon.ico') {
+//           ctx.body = asset
+//         }
+//         return next()
+//       }
+//     },
+//   })
+
 export default () => {
   const app = new App(root)
   app.register(Styletron)
@@ -38,6 +55,8 @@ export default () => {
     app.register(SWRegisterToken, true)
   }
   if (__NODE__) {
+    // app.register(FaviconToken, assetUrl('./icons/fusion-hn-16.png'))
+    // app.register(FaviconPlugin)
     app.register(WebAppManifestToken, Manifest)
     app.register(WebAppManifestPlugin)
     app.register(FetchToken, fetch)
