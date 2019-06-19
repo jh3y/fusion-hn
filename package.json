@@ -38,8 +38,8 @@
     "lint": "eslint .",
     "test": "fusion test",
     "build": "fusion build",
-    "build-production": "fusion build --production",
-    "start": "fusion build --production && fusion start"
+    "build-production": "CDN_URL='https://fusion-hn.herokuapp.com' fusion build --production",
+    "start": "npm run build-production && fusion start"
   },
   "lint-staged": {
     "src/**/*.js": [

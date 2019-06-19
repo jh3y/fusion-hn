@@ -20,6 +20,7 @@ import { assetUrl } from 'fusion-core'
 const root = (
   <Fragment>
     <Helmet>
+      <html lang="en-US" />
       <title>Fusion HN: HN Client built with Fusion JS</title>
       <meta
         name="viewport"
